@@ -2,7 +2,7 @@
 
 ## 1. Identificação
 
-- Integrante(s): Victor de Almeida Mangueira [@VictorAlmeidaM](https://github.com/VictorAlmeidaM) e Gabriel de Almeida Mangueira [@gabrielAlmangueira](https://github.com/gabrielAlmangueira).
+- Integrantes: Victor de Almeida Mangueira [@VictorAlmeidaM](https://github.com/VictorAlmeidaM) e Gabriel de Almeida Mangueira [@gabrielAlmangueira](https://github.com/gabrielAlmangueira).
 - Cenário: E — réplica isolada e queda do primário.
 - Caminho: Docker Compose, projeto `lab1`, PostgreSQL 16.
 - Execução: 14/11/2026; horários locais UTC−03:00, salvo indicação contrária.
