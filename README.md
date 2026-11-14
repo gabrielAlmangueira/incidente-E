@@ -2,7 +2,7 @@
 
 ## 1. Identificação
 
-- Integrante(s): Victor de Almeida Mangueira e Gabriel de Almeida Mangueira.
+- Integrante(s): Victor de Almeida Mangueira [@VictorAlmeidaM](https://github.com/VictorAlmeidaM) e Gabriel de Almeida Mangueira [@gabrielAlmangueira](https://github.com/gabrielAlmangueira).
 - Cenário: E — réplica isolada e queda do primário.
 - Caminho: Docker Compose, projeto `lab1`, PostgreSQL 16.
 - Execução: 14/11/2026; horários locais UTC−03:00, salvo indicação contrária.
@@ -34,8 +34,7 @@ A réplica foi parada enquanto o primário continuou aceitando gravações. Fora
 - **RPO:** M1 = 50 (50 linhas; `max(id) = 50`) e M2 = 0 linhas (`max(id) = NULL`) antes da primeira escrita após promoção. **Perda observada: 50 eventos.**
 - **Failover:** `lab1-replica-1`, na porta 5443, foi promovido às 10:26:50.807. A confirmação foi `pg_is_in_recovery() = false`. O container `lab1-primary-1` permaneceu parado para evitar split-brain.
 - **Estado dos clientes:** 1000 linhas antes e depois da promoção.
-- As consultas e saídas estão em `evidencias/01` a `evidencias/13`.
-
+- As consultas e saídas estão em [evidencias 01](evidencias/01-baseline-primary.txt) e [evidencias 13](evidencias/13-post-failover-validation.txt).
 ## 5. Causa raiz
 
 A replicação configurada era assíncrona. Com a réplica parada, o primário aceitou e confirmou 50 inserções sem que elas fossem enviadas à réplica. A promoção recuperou apenas o estado que havia chegado ao standby; replicação não é backup e não consegue recuperar alterações que nunca recebeu.
