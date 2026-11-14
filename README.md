@@ -9,7 +9,7 @@
 
 ## 2. Resumo do incidente
 
-A réplica foi parada enquanto o primário continuou aceitando gravações. Foram inseridos 50 eventos no primário e, antes de a réplica voltar a receber esses registros, o primário foi derrubado. A réplica foi iniciada e promovida manualmente. Os 50 eventos não estavam no novo primário, embora os 1000 clientes estivessem preservados.
+O banco primário continuou aceitando inserções e comandos mesmo com a replica parada. Os 50 eventos foram inseridos normalmente no primário mas, antes da replica voltar, o primário foi derrubado. A réplica foi acionada e promovida como failover, mas sem nenhum dos registros dos 50 eventos que foram perdidos no antigo primário. Os 1000 clientes continuaram persistidos como antes.
 
 ## 3. Linha do tempo
 
